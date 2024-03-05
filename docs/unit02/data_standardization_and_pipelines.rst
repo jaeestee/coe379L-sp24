@@ -100,6 +100,9 @@ having to re-run all of the pre-processing steps:
 
 .. code-block:: python3 
 
+    >>> import pandas as pd
+    >>> from sklearn.model_selection import train_test_split
+    >>>
     >>> cars = pd.read_csv('data/used_cars_data2.csv')
     >>> X = cars.drop(["Name", "Location", "Price"], axis=1)
     >>> y = cars["Price"]
@@ -179,6 +182,7 @@ with ``reshape(1, -1)``).
 .. code-block:: python3 
 
     from sklearn.preprocessing import RobustScaler, StandardScaler
+    import numpy as np
     # 30 normally distributed points with mean 5 and std 3
     data = np.random.normal(5, 3, 20)
     df1 = pd.DataFrame({"data": data})
@@ -214,7 +218,7 @@ Let's see what these scalers did to the data:
 .. code-block:: python3 
 
     >>> robust_scaled_df = pd.DataFrame({"data": robust_scaled_data.reshape(-1)})
-    >>> robust_scaled_data.describe()
+    >>> robust_scaled_df.describe()
 
                 data
     count   23.000000
